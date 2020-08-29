@@ -13,7 +13,19 @@ import {
   FilterPokemon,
   Title,
   TitleInfo,
+  PokemonList,
+  PokemonContainer,
+  PokemonImage,
+  PokemonInfo,
+  PokemonNumber,
+  PokemonName,
+  PokemonTypeContainer,
+  PokemonTypeImage,
+  PokemonType,
 } from './styles';
+
+import bulbasaurImg from '../../assets/bulbasaur.png';
+import grass from '../../assets/grass.png';
 
 const Dashboard: React.FC = () => {
   return (
@@ -46,6 +58,53 @@ const Dashboard: React.FC = () => {
           icon="search"
           placeholder="What Pokémon are you looking for?"
         />
+
+        <PokemonList>
+          <PokemonContainer>
+            <PokemonInfo>
+              <PokemonNumber>#001</PokemonNumber>
+
+              <PokemonName>Bulbasaur</PokemonName>
+
+              <PokemonTypeContainer>
+                <PokemonTypeImage source={grass} />
+                <PokemonType>Grass</PokemonType>
+              </PokemonTypeContainer>
+            </PokemonInfo>
+
+            <PokemonImage source={bulbasaurImg} />
+          </PokemonContainer>
+
+          <PokemonContainer>
+            <PokemonInfo>
+              <PokemonNumber>#001</PokemonNumber>
+
+              <PokemonName>Bulbasaur</PokemonName>
+
+              <PokemonTypeContainer>
+                <PokemonTypeImage source={grass} />
+                <PokemonType>Grass</PokemonType>
+              </PokemonTypeContainer>
+            </PokemonInfo>
+
+            <PokemonImage source={bulbasaurImg} />
+          </PokemonContainer>
+
+          <PokemonContainer>
+            <PokemonInfo>
+              <PokemonNumber>#001</PokemonNumber>
+
+              <PokemonName>Bulbasaur</PokemonName>
+
+              <PokemonTypeContainer>
+                <PokemonTypeImage source={grass} />
+                <PokemonType>Grass</PokemonType>
+              </PokemonTypeContainer>
+            </PokemonInfo>
+
+            <PokemonImage source={bulbasaurImg} />
+          </PokemonContainer>
+        </PokemonList>
       </Content>
       {/* </PokeBollaBackGround> */}
     </Container>
