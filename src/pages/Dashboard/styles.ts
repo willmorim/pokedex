@@ -58,18 +58,16 @@ export const PokemonContainer = styled.View`
   margin-bottom: 30px;
 `;
 
-export const Teste = styled.View`
-  /* background: blue; */
-
+export const PokemonContainerImage = styled.View`
+  flex: 1;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  flex: 1;
 `;
 
 export const PokeballImage = styled.Image`
-  width: 140px;
-  height: 145px;
+  width: 145px;
+  height: 100%;
   position: absolute;
   opacity: 0.2;
   left: 15px;
@@ -78,7 +76,7 @@ export const PokeballImage = styled.Image`
 export const PatterImage = styled.Image`
   width: 74px;
   height: 32px;
-  bottom: 48px;
+  bottom: 40px;
   opacity: 0.2;
   right: 65px;
 `;

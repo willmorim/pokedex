@@ -15,7 +15,6 @@ import {
   TitleInfo,
   PokemonList,
   PokemonContainer,
-  PatterImage,
   PokemonImage,
   PokemonInfo,
   PokemonNumber,
@@ -24,7 +23,8 @@ import {
   PokemonTypeContainerInfo,
   PokemonTypeImage,
   PokemonType,
-  Teste,
+  PokemonContainerImage,
+  PatterImage,
   PokeballImage,
 } from './styles';
 
@@ -83,12 +83,12 @@ const Dashboard: React.FC = () => {
               </PokemonTypeContainer>
             </PokemonInfo>
 
-            <Teste>
+            <PokemonContainerImage>
               <PatterImage source={patter} style={{ tintColor: 'white' }} />
               <PokeballImage source={pokeball} style={{ tintColor: 'white' }} />
               <PokemonImage source={bulbasaurImg} />
               {/* <PatterImage source={patter} /> */}
-            </Teste>
+            </PokemonContainerImage>
           </PokemonContainer>
 
           <PokemonContainer>
@@ -108,12 +108,12 @@ const Dashboard: React.FC = () => {
               </PokemonTypeContainer>
             </PokemonInfo>
 
-            <Teste>
+            <PokemonContainerImage>
               <PatterImage source={patter} style={{ tintColor: 'white' }} />
               <PokeballImage source={pokeball} style={{ tintColor: 'white' }} />
               <PokemonImage source={bulbasaurImg} />
               {/* <PatterImage source={patter} /> */}
-            </Teste>
+            </PokemonContainerImage>
           </PokemonContainer>
 
           <PokemonContainer>
@@ -133,12 +133,12 @@ const Dashboard: React.FC = () => {
               </PokemonTypeContainer>
             </PokemonInfo>
 
-            <Teste>
+            <PokemonContainerImage>
               <PatterImage source={patter} style={{ tintColor: 'white' }} />
               <PokeballImage source={pokeball} style={{ tintColor: 'white' }} />
               <PokemonImage source={bulbasaurImg} />
               {/* <PatterImage source={patter} /> */}
-            </Teste>
+            </PokemonContainerImage>
           </PokemonContainer>
         </PokemonList>
       </Content>
