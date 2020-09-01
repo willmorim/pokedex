@@ -1,5 +1,6 @@
 import styled from 'styled-components/native';
 import { getStatusBarHeight } from 'react-native-iphone-x-helper';
+import LinearGradient from 'react-native-linear-gradient';
 
 export const Container = styled.SafeAreaView`
   flex: 1;
@@ -57,9 +58,36 @@ export const PokemonContainer = styled.View`
   margin-bottom: 30px;
 `;
 
+export const Teste = styled.View`
+  /* background: blue; */
+
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+`;
+
+export const PokeballImage = styled.Image`
+  width: 140px;
+  height: 145px;
+  position: absolute;
+  opacity: 0.2;
+  left: 15px;
+`;
+
+export const PatterImage = styled.Image`
+  width: 74px;
+  height: 32px;
+  bottom: 48px;
+  opacity: 0.2;
+  right: 65px;
+`;
+
 export const PokemonImage = styled.Image`
-  bottom: 25;
-  margin-right: 5px;
+  bottom: 20px;
+  width: 130px;
+  height: 130px;
+  right: 30px;
 `;
 
 export const PokemonInfo = styled.View`
@@ -82,7 +110,14 @@ export const PokemonName = styled.Text`
 `;
 
 export const PokemonTypeContainer = styled.View`
-  flex: 1;
+  width: 130px;
+  margin-top: 5px;
+
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+export const PokemonTypeContainerInfo = styled.View`
   width: 61px;
   height: 25px;
   background: #62b957;

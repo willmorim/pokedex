@@ -15,22 +15,28 @@ import {
   TitleInfo,
   PokemonList,
   PokemonContainer,
+  PatterImage,
   PokemonImage,
   PokemonInfo,
   PokemonNumber,
   PokemonName,
   PokemonTypeContainer,
+  PokemonTypeContainerInfo,
   PokemonTypeImage,
   PokemonType,
+  Teste,
+  PokeballImage,
 } from './styles';
 
 import bulbasaurImg from '../../assets/bulbasaur.png';
 import grass from '../../assets/grass.png';
+import patter from '../../assets/patter.png';
+import pokeball from '../../assets/pokeball.png';
 
 const Dashboard: React.FC = () => {
   return (
     <Container>
-      {/* <PokeBollaBackGround> */}
+      {/* <PokeBollaBackGround source={pokeball}> */}
       <Content>
         <Header>
           <ChooseGeneration>
@@ -63,46 +69,76 @@ const Dashboard: React.FC = () => {
           <PokemonContainer>
             <PokemonInfo>
               <PokemonNumber>#001</PokemonNumber>
-
               <PokemonName>Bulbasaur</PokemonName>
-
               <PokemonTypeContainer>
-                <PokemonTypeImage source={grass} />
-                <PokemonType>Grass</PokemonType>
+                <PokemonTypeContainerInfo>
+                  <PokemonTypeImage source={grass} />
+                  <PokemonType>Grass</PokemonType>
+                </PokemonTypeContainerInfo>
+
+                <PokemonTypeContainerInfo>
+                  <PokemonTypeImage source={grass} />
+                  <PokemonType>Grass</PokemonType>
+                </PokemonTypeContainerInfo>
               </PokemonTypeContainer>
             </PokemonInfo>
 
-            <PokemonImage source={bulbasaurImg} />
+            <Teste>
+              <PatterImage source={patter} style={{ tintColor: 'white' }} />
+              <PokeballImage source={pokeball} style={{ tintColor: 'white' }} />
+              <PokemonImage source={bulbasaurImg} />
+              {/* <PatterImage source={patter} /> */}
+            </Teste>
           </PokemonContainer>
 
           <PokemonContainer>
             <PokemonInfo>
               <PokemonNumber>#001</PokemonNumber>
-
               <PokemonName>Bulbasaur</PokemonName>
-
               <PokemonTypeContainer>
-                <PokemonTypeImage source={grass} />
-                <PokemonType>Grass</PokemonType>
+                <PokemonTypeContainerInfo>
+                  <PokemonTypeImage source={grass} />
+                  <PokemonType>Grass</PokemonType>
+                </PokemonTypeContainerInfo>
+
+                <PokemonTypeContainerInfo>
+                  <PokemonTypeImage source={grass} />
+                  <PokemonType>Grass</PokemonType>
+                </PokemonTypeContainerInfo>
               </PokemonTypeContainer>
             </PokemonInfo>
 
-            <PokemonImage source={bulbasaurImg} />
+            <Teste>
+              <PatterImage source={patter} style={{ tintColor: 'white' }} />
+              <PokeballImage source={pokeball} style={{ tintColor: 'white' }} />
+              <PokemonImage source={bulbasaurImg} />
+              {/* <PatterImage source={patter} /> */}
+            </Teste>
           </PokemonContainer>
 
           <PokemonContainer>
             <PokemonInfo>
               <PokemonNumber>#001</PokemonNumber>
-
               <PokemonName>Bulbasaur</PokemonName>
-
               <PokemonTypeContainer>
-                <PokemonTypeImage source={grass} />
-                <PokemonType>Grass</PokemonType>
+                <PokemonTypeContainerInfo>
+                  <PokemonTypeImage source={grass} />
+                  <PokemonType>Grass</PokemonType>
+                </PokemonTypeContainerInfo>
+
+                <PokemonTypeContainerInfo>
+                  <PokemonTypeImage source={grass} />
+                  <PokemonType>Grass</PokemonType>
+                </PokemonTypeContainerInfo>
               </PokemonTypeContainer>
             </PokemonInfo>
 
-            <PokemonImage source={bulbasaurImg} />
+            <Teste>
+              <PatterImage source={patter} style={{ tintColor: 'white' }} />
+              <PokeballImage source={pokeball} style={{ tintColor: 'white' }} />
+              <PokemonImage source={bulbasaurImg} />
+              {/* <PatterImage source={patter} /> */}
+            </Teste>
           </PokemonContainer>
         </PokemonList>
       </Content>
