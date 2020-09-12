@@ -63,6 +63,8 @@ const Dashboard: React.FC = () => {
           name="search"
           icon="search"
           placeholder="What Pokémon are you looking for?"
+          autoCapitalize="none"
+          autoCorrect={false}
         />
 
         <PokemonList>
