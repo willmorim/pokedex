@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Image } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 import Input from '../../components/Input';
@@ -32,11 +32,44 @@ import bulbasaurImg from '../../assets/bulbasaur.png';
 import grass from '../../assets/grass.png';
 import patter from '../../assets/patter.png';
 import pokeball from '../../assets/pokeball.png';
+import api from '../../services/api';
+
+export interface Pokemons {
+  id: string;
+  name: string;
+  // results: PokemonTypes[];
+}
+
+interface PokemonTypes {
+  types: [
+    slot: number,
+    type: {
+      name: string;
+      url: string;
+    }
+  ]
+}
 
 const Dashboard: React.FC = () => {
+  const [pokemons, setPokemons] = useState<Pokemons[]>([]);
+  const [searchPokemons, setSearchPokemons] = useState('');
+
+  useEffect(() => {
+    async function loadPokemons(): Promise<void> {
+      const response = await api.get(`${searchPokemons}`);
+
+      setPokemons(response.data);
+    }
+
+    loadPokemons();
+    }, [searchPokemons]);
+
+  console.log('GETTT: ',pokemons)
+  console.log('nome do pokemon: ',searchPokemons)
+
+
   return (
     <Container>
-      {/* <PokeBollaBackGround source={pokeball}> */}
       <Content>
         <Header>
           <ChooseGeneration>
@@ -62,21 +95,26 @@ const Dashboard: React.FC = () => {
         <Input
           name="search"
           icon="search"
+          value={searchPokemons}
+          onChangeText={setSearchPokemons}
           placeholder="What Pokémon are you looking for?"
           autoCapitalize="none"
           autoCorrect={false}
         />
 
-        <PokemonList>
+        <PokemonList
+        data={pokemons}
+        renderItem={({ item }) => (
           <PokemonContainer>
             <PokemonInfo>
-              <PokemonNumber>#001</PokemonNumber>
+              <PokemonNumber>{item.name}</PokemonNumber>
               <PokemonName>Bulbasaur</PokemonName>
               <PokemonTypeContainer>
                 <PokemonTypeContainerInfo>
                   <PokemonTypeImage source={grass} />
                   <PokemonType>Grass</PokemonType>
                 </PokemonTypeContainerInfo>
+
 
                 <PokemonTypeContainerInfo>
                   <PokemonTypeImage source={grass} />
@@ -89,62 +127,10 @@ const Dashboard: React.FC = () => {
               <PatterImage source={patter} style={{ tintColor: 'white' }} />
               <PokeballImage source={pokeball} style={{ tintColor: 'white' }} />
               <PokemonImage source={bulbasaurImg} />
-              {/* <PatterImage source={patter} /> */}
             </PokemonContainerImage>
           </PokemonContainer>
-
-          <PokemonContainer>
-            <PokemonInfo>
-              <PokemonNumber>#001</PokemonNumber>
-              <PokemonName>Bulbasaur</PokemonName>
-              <PokemonTypeContainer>
-                <PokemonTypeContainerInfo>
-                  <PokemonTypeImage source={grass} />
-                  <PokemonType>Grass</PokemonType>
-                </PokemonTypeContainerInfo>
-
-                <PokemonTypeContainerInfo>
-                  <PokemonTypeImage source={grass} />
-                  <PokemonType>Grass</PokemonType>
-                </PokemonTypeContainerInfo>
-              </PokemonTypeContainer>
-            </PokemonInfo>
-
-            <PokemonContainerImage>
-              <PatterImage source={patter} style={{ tintColor: 'white' }} />
-              <PokeballImage source={pokeball} style={{ tintColor: 'white' }} />
-              <PokemonImage source={bulbasaurImg} />
-              {/* <PatterImage source={patter} /> */}
-            </PokemonContainerImage>
-          </PokemonContainer>
-
-          <PokemonContainer>
-            <PokemonInfo>
-              <PokemonNumber>#001</PokemonNumber>
-              <PokemonName>Bulbasaur</PokemonName>
-              <PokemonTypeContainer>
-                <PokemonTypeContainerInfo>
-                  <PokemonTypeImage source={grass} />
-                  <PokemonType>Grass</PokemonType>
-                </PokemonTypeContainerInfo>
-
-                <PokemonTypeContainerInfo>
-                  <PokemonTypeImage source={grass} />
-                  <PokemonType>Grass</PokemonType>
-                </PokemonTypeContainerInfo>
-              </PokemonTypeContainer>
-            </PokemonInfo>
-
-            <PokemonContainerImage>
-              <PatterImage source={patter} style={{ tintColor: 'white' }} />
-              <PokeballImage source={pokeball} style={{ tintColor: 'white' }} />
-              <PokemonImage source={bulbasaurImg} />
-              {/* <PatterImage source={patter} /> */}
-            </PokemonContainerImage>
-          </PokemonContainer>
-        </PokemonList>
+        )}/>
       </Content>
-      {/* </PokeBollaBackGround> */}
     </Container>
   );
 };

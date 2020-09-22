@@ -1,6 +1,7 @@
 import styled from 'styled-components/native';
 import { getStatusBarHeight } from 'react-native-iphone-x-helper';
-import LinearGradient from 'react-native-linear-gradient';
+import { FlatList } from 'react-native';
+import { Pokemons } from './index';
 
 export const Container = styled.SafeAreaView`
   flex: 1;
@@ -45,8 +46,9 @@ export const TitleInfo = styled.Text`
   margin-top: 10px;
 `;
 
-export const PokemonList = styled.View`
+export const PokemonList = styled(FlatList as new () => FlatList<Pokemons>)`
   padding-top: 45px;
+  background: red;
 `;
 
 export const PokemonContainer = styled.View`
