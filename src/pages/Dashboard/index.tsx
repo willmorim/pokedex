@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Image } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 import Input from '../../components/Input';
 
 import {
   Container,
-  PokeBollaBackGround,
   Content,
   Header,
   ChooseGeneration,
@@ -34,24 +32,22 @@ import patter from '../../assets/patter.png';
 import pokeball from '../../assets/pokeball.png';
 import api from '../../services/api';
 
-export interface Pokemons {
-  id: string;
-  name: string;
-  // results: PokemonTypes[];
+interface Pokemons {
+  results: PokemonResults[];
 }
 
-interface PokemonTypes {
-  types: [
-    slot: number,
+export interface PokemonResults {
+  id: number;
+  name: string;
+  types: {
     type: {
       name: string;
-      url: string;
-    }
-  ]
+    };
+  }[];
 }
 
 const Dashboard: React.FC = () => {
-  const [pokemons, setPokemons] = useState<Pokemons[]>([]);
+  const [pokemons, setPokemons] = useState<Pokemons>({} as Pokemons);
   const [searchPokemons, setSearchPokemons] = useState('');
 
   useEffect(() => {
@@ -62,11 +58,11 @@ const Dashboard: React.FC = () => {
     }
 
     loadPokemons();
-    }, [searchPokemons]);
+  }, [searchPokemons]);
 
-  console.log('GETTT: ',pokemons)
-  console.log('nome do pokemon: ',searchPokemons)
-
+  console.log('GETTT: ', pokemons);
+  console.log('nome do pokemon: ', searchPokemons);
+  console.log('AAAAAA: ', PokemonType);
 
   return (
     <Container>
@@ -103,33 +99,37 @@ const Dashboard: React.FC = () => {
         />
 
         <PokemonList
-        data={pokemons}
-        renderItem={({ item }) => (
-          <PokemonContainer>
-            <PokemonInfo>
-              <PokemonNumber>{item.name}</PokemonNumber>
-              <PokemonName>Bulbasaur</PokemonName>
-              <PokemonTypeContainer>
-                <PokemonTypeContainerInfo>
-                  <PokemonTypeImage source={grass} />
-                  <PokemonType>Grass</PokemonType>
-                </PokemonTypeContainerInfo>
+          data={pokemons.results}
+          keyExtractor={item => item.name}
+          renderItem={({ item }) => (
+            <PokemonContainer>
+              <PokemonInfo>
+                <PokemonNumber>001</PokemonNumber>
+                <PokemonName>{item.name}</PokemonName>
+                <PokemonTypeContainer>
+                  <PokemonTypeContainerInfo>
+                    <PokemonTypeImage source={grass} />
+                    <PokemonType>Grass</PokemonType>
+                  </PokemonTypeContainerInfo>
 
+                  <PokemonTypeContainerInfo>
+                    <PokemonTypeImage source={grass} />
+                    <PokemonType>Grass</PokemonType>
+                  </PokemonTypeContainerInfo>
+                </PokemonTypeContainer>
+              </PokemonInfo>
 
-                <PokemonTypeContainerInfo>
-                  <PokemonTypeImage source={grass} />
-                  <PokemonType>Grass</PokemonType>
-                </PokemonTypeContainerInfo>
-              </PokemonTypeContainer>
-            </PokemonInfo>
-
-            <PokemonContainerImage>
-              <PatterImage source={patter} style={{ tintColor: 'white' }} />
-              <PokeballImage source={pokeball} style={{ tintColor: 'white' }} />
-              <PokemonImage source={bulbasaurImg} />
-            </PokemonContainerImage>
-          </PokemonContainer>
-        )}/>
+              <PokemonContainerImage>
+                <PatterImage source={patter} style={{ tintColor: 'white' }} />
+                <PokeballImage
+                  source={pokeball}
+                  style={{ tintColor: 'white' }}
+                />
+                <PokemonImage source={bulbasaurImg} />
+              </PokemonContainerImage>
+            </PokemonContainer>
+          )}
+        />
       </Content>
     </Container>
   );
